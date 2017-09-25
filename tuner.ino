@@ -1,16 +1,26 @@
-// ============================================================                                                            
-// Example:     LCDML: grafik display with u8g2                        
-// ============================================================
+////////////////////////////////////////////////////////////////////////////////
+// tuner
+// T Czerwonka WO9U tczerwonka@gmail.com
+// http://www.cs.wisc.edu/~timc/e/tuner
+// https://github.com/tczerwonka/tuner
+////////////////////////////////////////////////////////////////////////////////
+// Arduino code to control three stepper motors connected to two mechanical
+// variable capacitors and a roller inductor in search of a tuner for 
+// amateur radio use.  
+//
+// Hardware
+//   Arduino Mega2560, RAMPS 1.4 shield with ST7920 128x64 display
+// 
+////////////////////////////////////////////////////////////////////////////////
+// Menuing code based on example code from:
 // Autor:       Nils Feldkämper
 // Last update: 12.01.2017
-// License:     MIT                                     
-// ============================================================ 
-// Descripton: 
-// This example shows how to use the u8g2lib with the lcdmenulib
-// The menu can placed in a box that can be placed anywhere on 
-// the screen.  
-// ============================================================ 
 // https://github.com/Jomelo/LCDMenuLib
+////////////////////////////////////////////////////////////////////////////////
+// libraries required:
+//   u8g2lib
+////////////////////////////////////////////////////////////////////////////////
+
 
   // include libs
   #include <LCDMenuLib.h>
