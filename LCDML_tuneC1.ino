@@ -48,10 +48,14 @@ void LCDML_DISP_setup(LCDML_FUNC_tuneC1)
   u8g2.setFont(_LCDML_DISP_font);
   u8g2.firstPage();  
   do {
-    u8g2.drawStr( 0, 13, "To close this");
-    u8g2.drawStr( 0, 26, "function press");
-    u8g2.drawStr( 0, 39, "any button or use");
-    u8g2.drawStr( 0, 52, "back button");
+    // draw graphic 
+    u8g2.drawCircle(64, 64, 40, U8G2_DRAW_UPPER_RIGHT|U8G2_DRAW_UPPER_LEFT);
+    u8g2.drawStr(10, 64, "0"); // minimum value
+    u8g2.drawStr(110, 64, "100"); //max value
+    //u8g2.drawStr( 0, 13, "To close this");
+    //u8g2.drawStr( 0, 26, "function press");
+    //u8g2.drawStr( 0, 39, "any button or use");
+    //u8g2.drawStr( 0, 52, "back button");
   } while( u8g2.nextPage() );
 }
 
@@ -60,6 +64,7 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
   // loop function, can be run in a loop when LCDML_DISP_triggerMenu(xx) is set
   // the quit button works in every DISP function without any checks; it starts the loop_end function   
   if(LCDML_BUTTON_checkAny()) { // check if any button is presed (enter, up, down, left, right)
+    // 
     // LCDML_DISP_funcend calls the loop_end function
     LCDML_DISP_funcend();
   } 
