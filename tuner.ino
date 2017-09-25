@@ -111,7 +111,8 @@ U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, LCD_CLOCK, LCD_DATA, LCD_CS);
   LCDML_DISP_add (0, _LCDML_G1, LCDML_root, 1, "Auto Tune"    , LCDML_FUNC_information);
    LCDML_DISP_add (1, _LCDML_G1, LCDML_root_1, 1, "Tune Now"   , LCDML_FUNC);
   LCDML_DISP_add (2, _LCDML_G1, LCDML_root, 2, "Manual Tune"  , LCDML_FUNC_timer_info);
-   LCDML_DISP_add (3, _LCDML_G1, LCDML_root_2, 1, "Adjust C1"   , LCDML_FUNC);
+   LCDML_DISP_add (3, _LCDML_G1, LCDML_root_2, 1, "Adjust C1"   , LCDML_FUNC_tuneC1);
+    //LCDML_DISP_add (4, _LCDML_G1, LCDML_root_2_1, 1, "C1", LCDML_FUNC_tuneC1);
    LCDML_DISP_add (4, _LCDML_G1, LCDML_root_2, 2, "Adjust L1"   , LCDML_FUNC);
    LCDML_DISP_add (5, _LCDML_G1, LCDML_root_2, 3, "Adjust C2"   , LCDML_FUNC);
   LCDML_DISP_add (6, _LCDML_G1, LCDML_root, 3, "Matrix"       , LCDML_FUNC);
@@ -171,6 +172,8 @@ U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, LCD_CLOCK, LCD_DATA, LCD_CS);
     //splash menu
     version();
     delay(1000);
+    //locate where the devices are righ now
+    initial_setup();
   
     // LCDMenu Setup
     LCDML_setup(_LCDML_BACK_cnt);  

@@ -24,3 +24,33 @@ void version()
   //tone(BEEP, 2000, 50);
 
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// initial_setup()
+//  function to initialize all devices to zero
+//  Potentially:
+//   * determine if last shutdown was 'clean'
+//     possibly writing to nvram (good idea?) that positions are 'dirty' before
+//     start of adjustment and then indicate they're 'clean' if a tune finishes
+//     then just assume that no sticky fingers have been inside to tweak the 
+//     locations from what the last settings indicate they should be
+//   * if not clean, run locate_hardware()
+////////////////////////////////////////////////////////////////////////////////
+void initial_setup ()
+{
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// locate_hardware()
+//   function to step through both caps and inductor and determine positions
+////////////////////////////////////////////////////////////////////////////////
+void locate_hardware()
+{
+}
+
+
+
