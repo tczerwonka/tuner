@@ -109,7 +109,10 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
       do {
         //print the value
         u8g2.drawStr( 75, 13, buf);
-        u8g2.drawBox(9, 50, g_button_value, 13);
+        u8g2.setDrawColor(0);
+        u8g2.drawBox((10+g_button_value),51,(99-g_button_value),11);
+        //u8g2.drawBox(9, 50, g_button_value, 13);
+        u8g2.setDrawColor(1);
       } while( u8g2.nextPage() );  
 
       C1 = g_button_value;
