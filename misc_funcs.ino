@@ -12,7 +12,7 @@ void version()
   u8g2.setFont(u8g2_font_helvR14_tr);
   u8g2.drawStr(18, 15, "Auto-Tuner");
   u8g2.setFont(u8g2_font_helvR08_tr);
-  u8g2.drawStr(30, 30, "v0.01 Feb2017");
+  u8g2.drawStr(30, 30, "v0.02 Sep2017");
   u8g2.drawStr(15, 64, "T. Czerwonka WO9U");
   u8g2.setFont(u8g2_font_unifont_t_symbols);
   //u8g2.drawGlyph(55, 50, 0x2603);  /* dec 9731/hex 2603 Snowman */
