@@ -56,7 +56,7 @@ void LCDML_DISP_setup(LCDML_FUNC_tuneC1)
     //I bet it'll be sloooooowwwww...
     //u8g2.drawCircle(64, 64, 40, U8G2_DRAW_UPPER_RIGHT|U8G2_DRAW_UPPER_LEFT);
     u8g2.drawFrame(7, 50, 102, 14);
-    u8g2.drawStr(1, 61, "1"); // minimum value -- one because multiplying by zero can be noisome
+    u8g2.drawStr(1, 61, "0"); // minimum value 
     u8g2.drawStr(110, 61, "100"); //max value
     
     u8g2.drawStr( 0, 13, "C1 position:");
