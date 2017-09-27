@@ -117,7 +117,7 @@ U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, LCD_CLOCK, LCD_DATA, LCD_CS);
   LCDML_DISP_add (2, _LCDML_G1, LCDML_root, 2, "Manual Tune"  , LCDML_FUNC_timer_info);
    LCDML_DISP_add (3, _LCDML_G1, LCDML_root_2, 1, "Adjust C1"   , LCDML_FUNC_tuneC1);
     //LCDML_DISP_add (4, _LCDML_G1, LCDML_root_2_1, 1, "C1", LCDML_FUNC_tuneC1);
-   LCDML_DISP_add (4, _LCDML_G1, LCDML_root_2, 2, "Adjust L1"   , LCDML_FUNC);
+   LCDML_DISP_add (4, _LCDML_G1, LCDML_root_2, 2, "Adjust L1"   , LCDML_FUNC_tuneL1);
    LCDML_DISP_add (5, _LCDML_G1, LCDML_root_2, 3, "Adjust C2"   , LCDML_FUNC_tuneC2);
   LCDML_DISP_add (6, _LCDML_G1, LCDML_root, 3, "Matrix"       , LCDML_FUNC);
   LCDML_DISP_add (7, _LCDML_G1, LCDML_root, 4, "Setup"        , LCDML_FUNC);
