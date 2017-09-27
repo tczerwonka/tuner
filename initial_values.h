@@ -16,7 +16,7 @@ int C1_min = 10;
 int C1_max = 330;
 
 int L1_min = 20;
-int L2_max = 2000;
+int L1_max = 2000;
 
 int C2_min = 12;
 int C2_max = 220;
