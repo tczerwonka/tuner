@@ -67,7 +67,7 @@ void LCDML_DISP_setup(LCDML_FUNC_tuneC1)
     u8g2.drawStr( 0, 26, "approx uF:");
     //calculate capacitance
     char bufc[4];
-    int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
+    int disp_c1 = ((((C1_max - C1_min) * C1) / 100) + C1_min);
     sprintf (bufc, "%003d", disp_c1);
     u8g2.drawStr(65, 26, bufc);
 
@@ -108,7 +108,7 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
         u8g2.drawStr( 75, 13, buf);
         u8g2.drawBox(8, 51, g_button_value, 13);
         //calculate and print capacitance
-        int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
+        int disp_c1 = ((((C1_max - C1_min) * C1) / 100) + C1_min);
         char bufc[4];
         sprintf (bufc, "%003d", disp_c1);
         u8g2.drawStr(65, 26, bufc);
@@ -117,7 +117,7 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
     
     if (LCDML_BUTTON_checkUp()) {
       LCDML_BUTTON_resetUp();
-      if (C1 > 1) {
+      if (C1 > 0) {
         //allow the user to roll past endpoints but don't do anything about it
         g_button_value--;
         C1--;
@@ -132,7 +132,7 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
         u8g2.drawBox((8+g_button_value),51,(99-g_button_value),12);
         u8g2.setDrawColor(1);
         //calculate and print capacitance
-        int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
+        int disp_c1 = ((((C1_max - C1_min) * C1) / 100) + C1_min);
         char bufd[4];
         sprintf (bufd, "%003d", disp_c1);
         u8g2.drawStr(65, 26, bufd);
