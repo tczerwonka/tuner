@@ -41,6 +41,7 @@
   #endif
 
   #include "pindefs.h"
+  #include "initial_values.h"
   
 
   //these are the ST7920 128x64 pin assignments on the RAMPS 1.4 board
@@ -48,13 +49,7 @@
   #define LCD_DATA  17
   #define LCD_CS    16
 
-////////////////////////////////////////////////////////////////////////////////
-// globals -- I think these are appropriate.
-////////////////////////////////////////////////////////////////////////////////
-// these "0 to 100" are arbitrary for now, thinking in terms of %-meshed
-int C1 = 0; //capacitor 1 mesh value -- 0 to 100
-int L1 = 0; //inductor 1 travel value -- 0 to 1000
-int C2 = 0; //capacitor 1 mesh value -- 0 to 100
+
 
 
 // *********************************************************************

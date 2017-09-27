@@ -55,14 +55,26 @@ void LCDML_DISP_setup(LCDML_FUNC_tuneC1)
     //I can get messing with hardware instead of getting the math right -- and
     //I bet it'll be sloooooowwwww...
     //u8g2.drawCircle(64, 64, 40, U8G2_DRAW_UPPER_RIGHT|U8G2_DRAW_UPPER_LEFT);
-    u8g2.drawFrame(9, 50, 100, 13);
-    u8g2.drawStr(1, 61, "0"); // minimum value
+    u8g2.drawFrame(7, 50, 102, 14);
+    u8g2.drawStr(1, 61, "1"); // minimum value -- one because multiplying by zero can be noisome
     u8g2.drawStr(110, 61, "100"); //max value
+    
     u8g2.drawStr( 0, 13, "C1 position:");
     char buf[17];
     sprintf (buf, "%-3d", C1);
-    u8g2.drawStr( 75, 13, buf);
+    u8g2.drawStr(75, 13, buf);
+    
     u8g2.drawStr( 0, 26, "approx uF:");
+    //calculate capacitance
+    char bufc[4];
+    int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
+    sprintf (bufc, "%-3d", disp_c1);
+    u8g2.drawStr(65, 26, bufc);
+
+    //draw the initial bar 
+    u8g2.drawBox(8, 51, C1, 13);
+
+      
     //u8g2.drawStr( 0, 39, "any button or use");
     //u8g2.drawStr( 0, 52, "back button");
   } while ( u8g2.nextPage() );
@@ -82,50 +94,60 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
     if (LCDML_BUTTON_checkDown()) {
       // check if button up is pressed -- even though it says 'down'
       LCDML_BUTTON_resetDown(); // reset the down button
-      g_button_value++;
+      if (C1 < 100) {
+        //allow the user to roll past endpoints but don't do anything about it
+        g_button_value++;
+        C1++;
+      } //if
       
       // update lcd content
       char buf[4];
       sprintf (buf, "%-3d", g_button_value);
-      
-      //u8g2.setFont(_LCDML_DISP_font);
-      //u8g2.firstPage();  
       do {
         //print the value
         u8g2.drawStr( 75, 13, buf);
-        u8g2.drawBox(9, 50, g_button_value, 13);
+        u8g2.drawBox(8, 51, g_button_value, 13);
+        //calculate and print capacitance
+        int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
+        char bufc[4];
+        sprintf (bufc, "%d", disp_c1);
+        u8g2.drawStr(65, 26, bufc);
       } while( u8g2.nextPage() );        
     } //if checkDown   
     
     if (LCDML_BUTTON_checkUp()) {
       LCDML_BUTTON_resetUp();
-      g_button_value--;
+      if (C1 > 1) {
+        //allow the user to roll past endpoints but don't do anything about it
+        g_button_value--;
+        C1--;
+      } //if
       // update lcd content
       char buf[17];
       sprintf (buf, "%-3d", g_button_value);
-      
-      //u8g2.setFont(_LCDML_DISP_font);
-      //u8g2.firstPage();  
       do {
         //print the value
         u8g2.drawStr( 75, 13, buf);
         u8g2.setDrawColor(0);
-        u8g2.drawBox((10+g_button_value),51,(99-g_button_value),11);
-        //u8g2.drawBox(9, 50, g_button_value, 13);
+        u8g2.drawBox((8+g_button_value),51,(99-g_button_value),12);
         u8g2.setDrawColor(1);
+        //calculate and print capacitance
+        int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
+        char bufd[4];
+        sprintf (bufd, "%d", disp_c1);
+        u8g2.drawStr(65, 26, bufd);
       } while( u8g2.nextPage() );  
 
-      C1 = g_button_value;
 
-    }
+    } //if checkUp
+
+    if (LCDML_BUTTON_checkLeft()) {
+      LCDML_BUTTON_resetLeft();
+      LCDML_DISP_funcend();   
+    } //if checkBack
   } //if checkAny
   
-  // check if button count is three
-  if (g_button_value >= 20) {
-    // end function for callback
-    LCDML_DISP_funcend();   
-  } 
-}
+} //LCDML_DISP_loop
 
 
 
