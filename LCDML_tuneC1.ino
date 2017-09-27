@@ -61,14 +61,14 @@ void LCDML_DISP_setup(LCDML_FUNC_tuneC1)
     
     u8g2.drawStr( 0, 13, "C1 position:");
     char buf[17];
-    sprintf (buf, "%-3d", C1);
+    sprintf (buf, "%003d", C1);
     u8g2.drawStr(75, 13, buf);
     
     u8g2.drawStr( 0, 26, "approx uF:");
     //calculate capacitance
     char bufc[4];
     int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
-    sprintf (bufc, "%-3d", disp_c1);
+    sprintf (bufc, "%003d", disp_c1);
     u8g2.drawStr(65, 26, bufc);
 
     //draw the initial bar 
@@ -102,7 +102,7 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
       
       // update lcd content
       char buf[4];
-      sprintf (buf, "%-3d", g_button_value);
+      sprintf (buf, "%003d", g_button_value);
       do {
         //print the value
         u8g2.drawStr( 75, 13, buf);
@@ -110,7 +110,7 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
         //calculate and print capacitance
         int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
         char bufc[4];
-        sprintf (bufc, "%d", disp_c1);
+        sprintf (bufc, "%003d", disp_c1);
         u8g2.drawStr(65, 26, bufc);
       } while( u8g2.nextPage() );        
     } //if checkDown   
@@ -124,7 +124,7 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
       } //if
       // update lcd content
       char buf[17];
-      sprintf (buf, "%-3d", g_button_value);
+      sprintf (buf, "%003d", g_button_value);
       do {
         //print the value
         u8g2.drawStr( 75, 13, buf);
@@ -134,7 +134,7 @@ void LCDML_DISP_loop(LCDML_FUNC_tuneC1)
         //calculate and print capacitance
         int disp_c1 = ((((C1_max - C1_min) * (C1-1)) / 100) + C1_min);
         char bufd[4];
-        sprintf (bufd, "%d", disp_c1);
+        sprintf (bufd, "%003d", disp_c1);
         u8g2.drawStr(65, 26, bufd);
       } while( u8g2.nextPage() );  
 
