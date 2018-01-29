@@ -57,6 +57,12 @@
   #define LCD_CS    16
 
 
+  //stepper stuff
+  BasicStepperDriver stepperC1(MOTOR_STEPS, C1_DIR, C1_STEP, C1_ENABLE);
+  BasicStepperDriver stepperL1(MOTOR_STEPS, L1_DIR, L1_STEP, L1_ENABLE);
+  BasicStepperDriver stepperC2(MOTOR_STEPS, C2_DIR, C2_STEP, C2_ENABLE);
+
+
 
 
 // *********************************************************************
@@ -188,6 +194,13 @@ U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, LCD_CLOCK, LCD_DATA, LCD_CS);
   
     // LCDMenu Setup
     LCDML_setup(_LCDML_BACK_cnt);  
+
+
+    //stepper reset
+    stepperC1.begin(RPM, MICROSTEPS);
+    stepperL1.begin(RPM, MICROSTEPS);
+    stepperC2.begin(RPM, MICROSTEPS);
+    stepper_reset_to_zero();
   }
 
 // *********************************************************************
