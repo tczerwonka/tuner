@@ -17,13 +17,20 @@
 // Last update: 12.01.2017
 // https://github.com/Jomelo/LCDMenuLib
 ////////////////////////////////////////////////////////////////////////////////
+// also needs stepper library:
+// https://github.com/laurb9/StepperDriver
+////////////////////////////////////////////////////////////////////////////////
 // libraries required:
 //   u8g2lib
+//   LCDMenuLib
+//   StepperDriver
 ////////////////////////////////////////////////////////////////////////////////
 
 
   // include libs
   #include <LCDMenuLib.h>
+  #include "BasicStepperDriver.h"
+
 
   // lib config
   #define _LCDML_DISP_cfg_button_press_time          200    // button press time in ms
